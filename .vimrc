@@ -27,8 +27,11 @@ func! MaybeShowCompletions()
     return "\<C-N>"
   else
     if col(".") > indent(line(".")) + 1
-      return "\<C-N>"
+      " we're after a non-blank character, show the menu and
+      " highlight the first entry
+      return "\<C-N>\<Down>"
     else
+      " the user probably just wants to indent...
       return "\<Tab>"
     endif
   endif
