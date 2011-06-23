@@ -7,6 +7,7 @@ set completeopt=longest,menuone,preview
 set ignorecase
 set infercase
 
+
 " make <CR> always accept a completion instead of 
 " adding a newline
 inoremap <expr> <CR> MaybeAcceptCompletion()
@@ -16,6 +17,20 @@ func! MaybeAcceptCompletion()
     return "\<C-Y>"
   else
     return "\<CR>"
+  endif
+endfunc
+
+inoremap <expr> <Tab> MaybeShowCompletions()
+
+func! MaybeShowCompletions()
+  if pumvisible()
+    return "\<C-N>"
+  else
+    if col(".") > indent(line(".")) + 1
+      return "\<C-N>"
+    else
+      return "\<Tab>"
+    endif
   endif
 endfunc
 
