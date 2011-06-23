@@ -91,3 +91,9 @@ alias less='/usr/share/vim/vim73/macros/less.sh'
 cdl() {
     cd "$@" && /bin/ls -l ;
 }
+
+if [ -x /usr/bin/tput ]; then
+  cls() {
+    tput reset
+  }
+fi
