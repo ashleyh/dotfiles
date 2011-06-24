@@ -7,7 +7,6 @@ set completeopt=longest,menuone,preview
 set ignorecase
 set infercase
 
-
 " make <CR> always accept a completion instead of 
 " adding a newline
 inoremap <expr> <CR> MaybeAcceptCompletion()
@@ -22,6 +21,14 @@ endfunc
 
 inoremap <expr> <Tab> MaybeShowCompletions()
 
+func! MaybeHighlightFirstEntry()
+  if pumvisible()
+    return "\<Down>"
+  else
+    return ""
+  endif
+endfunc
+
 func! MaybeShowCompletions()
   if pumvisible()
     return "\<C-N>"
@@ -29,7 +36,7 @@ func! MaybeShowCompletions()
     if col(".") > indent(line(".")) + 1
       " we're after a non-blank character, show the menu and
       " highlight the first entry
-      return "\<C-N>\<Down>"
+      return "\<C-N>\<C-R>=MaybeHighlightFirstEntry()\<CR>"
     else
       " the user probably just wants to indent...
       return "\<Tab>"
