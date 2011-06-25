@@ -109,5 +109,5 @@ set incsearch
 set hlsearch
 
 " exclude some unvimmable files
-set wildignore+=*.class,*.o
+set wildignore+=*.class,*.o,*.pyc,*.pyo
 
