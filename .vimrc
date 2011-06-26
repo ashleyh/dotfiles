@@ -96,6 +96,8 @@ vmap <S-Tab> <gv
 " syntax
 filetype plugin indent on
 syntax enable
+let syntastic_enable_signs=1
+let syntastic_auto_loc_list=1
 
 " colorscheme
 set background=dark
