@@ -1,3 +1,5 @@
+call pathogen#runtime_append_all_bundles()
+
 set nocompatible
 
 " try to get some idea of which OS we're on
