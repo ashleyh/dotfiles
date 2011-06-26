@@ -111,7 +111,7 @@ set incsearch
 set hlsearch
 
 " exclude some unvimmable files
-set wildignore+=*.class,*.o
+set wildignore+=*.class,*.o,*.pyc,*.pyo
 
 " for some baffling reason, the default vim on OSX doesn't
 " have python support

@@ -86,7 +86,10 @@ settitle() {
   echo -ne "\e]0;$*\a"
 }
 
-alias less='/usr/share/vim/vim73/macros/less.sh'
+vim_less="/usr/share/vim/vim73/macros/less.sh" 
+if [ -x "$vim_less" ]; then
+    alias less="$vim_less"
+fi
 
 cdl() {
     cd "$@" && /bin/ls -l ;
