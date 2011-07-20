@@ -123,7 +123,6 @@ if has("python")
 python <<endpython
 import vim
 from contextlib import contextmanager
-print "hai"
 
 # saves the cursor before running the block and restores
 # it afterwards
@@ -152,6 +151,6 @@ endpython
   "    function () {
   "        something}
   " then that last } will get bumped onto a newline for you.
-  inoremap } <C-o>:python insert_close("[{", "}")<CR>
-  inoremap ) <C-o>:python insert_close("[(", ")")<CR>
+  "inoremap } <C-o>:python insert_close("[{", "}")<CR>
+  "inoremap ) <C-o>:python insert_close("[(", ")")<CR>
 endif
