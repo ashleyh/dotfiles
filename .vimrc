@@ -76,7 +76,7 @@ set guioptions-=T
 
 " set good font
 if g:uname == "Linux"
-  set guifont=Droid\ Sans\ Mono\ 11
+  set guifont=Droid\ Sans\ Mono\ 10.5
 elseif g:uname == "Darwin"
   set guifont=Menlo\ Regular:h11
 endif
@@ -116,6 +116,9 @@ set hlsearch
 
 " exclude some unvimmable files
 set wildignore+=*.class,*.o,*.pyc,*.pyo
+
+" line numbers
+set nu
 
 " for some baffling reason, the default vim on OSX doesn't
 " have python support
