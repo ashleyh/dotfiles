@@ -109,3 +109,7 @@ if [ -x /usr/bin/tput ]; then
     tput reset
   }
 fi
+
+if [ -f "$HOME/.bashrc.local" ]; then
+  . "$HOME/.bashrc.local"
+fi
