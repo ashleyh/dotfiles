@@ -75,8 +75,17 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+if [ "$(uname -s)" = "Darwin" -a -x "$(which brew)" ] ; then 
+  if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    . "$(brew --prefix)/etc/bash_completion"
+  fi
+fi
+
 SCALA_HOME="${HOME}/bin/scala"
 PATH="${HOME}/bin:${SCALA_HOME}/bin:${PATH}"
+EDITOR=vim
+
+bind '"\C-x\C-w": unix-filename-rubout'
 
 grephere() {
   grep -r -I "$@" .
