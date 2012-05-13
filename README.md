@@ -1,1 +1,6 @@
-i clone it to ~/dotfiles and do `ln -s dotfiles/.vimrc .vimrc` etc.
+To use:
+
+    git clone --recursive https://ashleyh@github.com/ashleyh/dotfiles.git $HOME/dotfiles
+    ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
+    
+etc.
