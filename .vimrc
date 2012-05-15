@@ -119,42 +119,10 @@ set hlsearch
 set wildignore+=*.class,*.o,*.pyc,*.pyo
 
 " line numbers
-set nu
+set number
 
-" for some baffling reason, the default vim on OSX doesn't
-" have python support
-if has("python")
-python <<endpython
-import vim
-from contextlib import contextmanager
+" column 80 marker
+set colorcolumn=80
 
-# saves the cursor before running the block and restores
-# it afterwards
-@contextmanager
-def preserve_cursor(window):
-  old_cursor = window.cursor
-  try:
-    yield
-  finally:
-    window.cursor = old_cursor
-
-# if `motion` is on a different line to the current
-# line, then insert a `<CR>` before `close`
-def insert_close(motion, close):
-  window = vim.current.window
-  with preserve_cursor(window):
-    old_row, _ = window.cursor
-    vim.command("keepjumps normal " + motion)
-    new_row, _ = window.cursor
-  if new_row < old_row:
-    vim.command(r'execute "normal" "a\<CR>\<Esc>"')
-  vim.command(r'execute "normal!" "a{0}\<Esc>"'.format(close))
-endpython
-
-  " the idea here is that if you type
-  "    function () {
-  "        something}
-  " then that last } will get bumped onto a newline for you.
-  "inoremap } <C-o>:python insert_close("[{", "}")<CR>
-  "inoremap ) <C-o>:python insert_close("[(", ")")<CR>
-endif
+" use {{{ }}} to mark folds manually
+set foldmethod=marker
