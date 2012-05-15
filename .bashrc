@@ -23,29 +23,36 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# prompt style {{{
+if [ -x "$(which tput)" ] && tput setaf 1 >&/dev/null ; then
+  if [ -z "$SSH_CONNECTION" ]; then
+    prompt_ab=5
+  else
+    prompt_ab=6
+  fi
+  prompt_style="$(tput bold)$(tput smul)$(tput setaf 7)$(tput setab $prompt_ab)"
+  prompt_plain="$(tput sgr0)"
+  unset prompt_ab
+else
+  prompt_style=
+  prompt_plain=
 fi
 
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
+if [ -z "$SSH_CONNECTION" ]; then
+  prompt_text='\W\$'
 else
-    color_prompt=
+  prompt_text='\u@\h \W\$'
 fi
+
+PS1="\[$prompt_style\]$prompt_text\[$prompt_plain\] "
+
+unset prompt_style
+unset prompt_plain
+unset prompt_text
 
 # new line after output
 PROMPT_COMMAND="echo;"
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;04;37;45m\]\W\$\[\033[00m\] '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt
+# }}}
 
 alias l='ls -CFG'
 alias la='l -A'
