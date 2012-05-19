@@ -54,9 +54,6 @@ unset prompt_text
 PROMPT_COMMAND="echo;"
 # }}}
 
-alias l='ls -CFG'
-alias la='l -A'
-alias ll='l -lh'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -78,6 +75,18 @@ EDITOR=vim
 
 bind '"\C-x\C-w": unix-filename-rubout'
 
+# aliases {{{
+alias l='ls -CFG'
+alias la='l -A'
+alias ll='l -lh'
+
+vim_less="/usr/share/vim/vim73/macros/less.sh" 
+if [ -x "$vim_less" ]; then
+    alias less="$vim_less"
+fi
+# }}}
+
+# functions {{{
 grephere() {
   grep -r -I "$@" .
 }
@@ -85,11 +94,6 @@ grephere() {
 settitle() {
   echo -ne "\e]0;$*\a"
 }
-
-vim_less="/usr/share/vim/vim73/macros/less.sh" 
-if [ -x "$vim_less" ]; then
-    alias less="$vim_less"
-fi
 
 cdl() {
     cd "$@" && /bin/ls -l ;
@@ -100,6 +104,7 @@ if [ -x /usr/bin/tput ]; then
     tput reset
   }
 fi
+# }}}
 
 if [ -f "$HOME/.bashrc.local" ]; then
   . "$HOME/.bashrc.local"
