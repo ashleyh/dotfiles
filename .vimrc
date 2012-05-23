@@ -8,11 +8,6 @@ if has("unix")
   let g:uname = substitute(system("uname"), "\n$", "", "")
 endif
 
-" because i can't seem to rebind capslock to escape in OSX
-if g:uname == "Darwin"
-  inoremap qw <Esc>
-endif
-
 set wildmode=list:longest:full
 set showmode
 set showcmd
@@ -67,9 +62,11 @@ endfunc
 " tab settings
 set autoindent
 set expandtab
-set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+
+" ...except python
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 
 " hide silly gui toolbar
 set guioptions-=T
@@ -126,3 +123,11 @@ set colorcolumn=80
 
 " use {{{ }}} to mark folds manually
 set foldmethod=marker
+
+" command-T options
+let g:CommandTMaxHeight = 10
+let g:CommandTBackspaceMap = ['<BS>', '<C-h>']
+let g:CommandTCursorLeftMap = ['<Left>']
+
+" browse parent directory
+map g/ :e %:p:h<CR>
