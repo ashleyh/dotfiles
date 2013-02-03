@@ -124,10 +124,12 @@ set colorcolumn=80
 " use {{{ }}} to mark folds manually
 set foldmethod=marker
 
-" command-T options
-let g:CommandTMaxHeight = 10
-let g:CommandTBackspaceMap = ['<BS>', '<C-h>']
-let g:CommandTCursorLeftMap = ['<Left>']
+" stop ctrlp trying to be smart
+let g:ctrlp_working_path_mode=''
+let g:ctrlp_custom_ignore={
+  \ 'dir': '\v[\/](target|\.hg|\.svn|__mycache__)$',
+  \ 'file': '\v\.jar$|\.class$'
+  \ }
 
 " browse parent directory
 map g/ :e %:p:h<CR>
