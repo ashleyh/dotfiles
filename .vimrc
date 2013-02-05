@@ -8,7 +8,10 @@ if has("unix")
   let g:uname = substitute(system("uname"), "\n$", "", "")
 endif
 
-set wildmode=list:longest:full
+set wildmode=list:longest
+set wildignorecase
+set wildignore+=*.class,*.o,*.pyc,*.pyo
+
 set showmode
 set showcmd
 
@@ -68,6 +71,9 @@ set softtabstop=2
 " ...except python
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 
+" try to rescue javascript indent
+autocmd FileType javascript setlocal nocindent
+
 " hide silly gui toolbar
 set guioptions-=T
 
@@ -112,9 +118,6 @@ set incsearch
 " highlight search
 set hlsearch
 
-" exclude some unvimmable files
-set wildignore+=*.class,*.o,*.pyc,*.pyo
-
 " line numbers
 set number
 
@@ -133,3 +136,6 @@ let g:ctrlp_custom_ignore={
 
 " browse parent directory
 map g/ :e %:p:h<CR>
+
+" /g is a pain
+set gdefault
