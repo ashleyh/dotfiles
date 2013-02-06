@@ -1,3 +1,5 @@
+setopt interactivecomments
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/dotfiles/oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/oh-my-zsh-custom
@@ -30,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
+plugins=(mercurial git zsh-syntax-highlighting command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
