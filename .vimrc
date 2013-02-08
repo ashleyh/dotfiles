@@ -139,3 +139,6 @@ map g/ :e %:p:h<CR>
 
 " /g is a pain
 set gdefault
+
+" use ack.vim with ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
