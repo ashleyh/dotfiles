@@ -81,7 +81,7 @@ set guioptions-=T
 if g:uname == "Linux"
   set guifont=Droid\ Sans\ Mono\ 10.5
 elseif g:uname == "Darwin"
-  set guifont=Menlo\ Regular:h11
+  set guifont=Menlo\ Regular:h13
 endif
 
 " enable mouse in terminal
