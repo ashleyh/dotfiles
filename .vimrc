@@ -87,10 +87,6 @@ endif
 " enable mouse in terminal
 set mouse=a
 
-" quickly save
-map WW :w<CR>
-imap WW <Esc>:w<CR>i
-
 " quickly indent/dedent
 imap <S-Tab> <C-d>
 vmap <Tab> >gv
