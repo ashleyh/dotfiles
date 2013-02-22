@@ -1,6 +1,6 @@
-call pathogen#runtime_append_all_bundles()
-
 set nocompatible
+
+call pathogen#runtime_append_all_bundles()
 
 " try to get some idea of which OS we're on
 let g:uname = "Unknown"
@@ -142,3 +142,12 @@ set gdefault
 
 " use ack.vim with ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" leave some space at edge of window
+set scrolloff=3
+set sidescrolloff=5
+
+" i don't know why this isn't the default
+nnoremap Y y$
+
+nmap <Leader>nh :noh<CR>
