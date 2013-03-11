@@ -36,5 +36,10 @@ plugins=(mercurial git zsh-syntax-highlighting command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
+bindkey -s '^[gu' '^[qcd ..^j'
+bindkey -s '^[gl' '^[qdirs -p^j'
+bindkey -s '^[go' '^[qpushd +1^j'
+bindkey -s '^[gi' '^[qpushd -0^j'
+
 zshrc_local="$HOME/.zshrc.local"
 [ -e "$zshrc_local" ] && source "$zshrc_local"
