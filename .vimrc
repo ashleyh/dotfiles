@@ -10,8 +10,17 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'Lokaltog/powerline'
+
 filetype plugin indent on
 " }}}
+
+" powerline {{{
+" wtf is with this, seriously?
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2
+" }}}
+
 
 " try to get some idea of which OS we're on
 let g:uname = "Unknown"
