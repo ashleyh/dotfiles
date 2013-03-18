@@ -1,6 +1,17 @@
 set nocompatible
 
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+
+" vundle {{{
+filetype off
+
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+filetype plugin indent on
+" }}}
 
 " try to get some idea of which OS we're on
 let g:uname = "Unknown"
@@ -93,7 +104,6 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " syntax
-filetype plugin indent on
 syntax enable
 let syntastic_enable_signs=1
 let syntastic_auto_loc_list=1
