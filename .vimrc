@@ -13,6 +13,20 @@ Bundle 'gmarik/vundle'
 filetype plugin indent on
 " }}}
 
+" status line {{{
+function ShortCwd()
+  return fnamemodify(getcwd(), ':~')
+endfunction
+
+hi link statusCwd Normal
+hi link statusFile Keyword
+
+set laststatus=2
+set statusline=
+set statusline+=%#statusCwd#%{ShortCwd()}
+set statusline+=%#statusFile#\ %f
+" }}}
+
 " try to get some idea of which OS we're on
 let g:uname = "Unknown"
 if has("unix")
