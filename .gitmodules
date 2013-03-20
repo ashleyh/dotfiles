@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "oh-my-zsh-custom/plugins/zaw"]
+	path = oh-my-zsh-custom/plugins/zaw
+	url = https://github.com/zsh-users/zaw.git
