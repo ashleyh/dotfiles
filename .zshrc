@@ -43,3 +43,6 @@ bindkey -s '^[gi' '^[qpushd -0^j'
 
 zshrc_local="$HOME/.zshrc.local"
 [ -e "$zshrc_local" ] && source "$zshrc_local"
+
+export EDITOR=vim VISUAL=vim
+alias v=vim

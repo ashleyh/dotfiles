@@ -18,13 +18,11 @@ function ShortCwd()
   return fnamemodify(getcwd(), ':~')
 endfunction
 
-hi link statusCwd Normal
-hi link statusFile Keyword
-
 set laststatus=2
 set statusline=
-set statusline+=%#statusCwd#%{ShortCwd()}
-set statusline+=%#statusFile#\ %f
+set statusline+=%#Normal#%{ShortCwd()}
+set statusline+=%#Keyword#\ %f
+set statusline+=%#Todo#\ %h%r%m
 " }}}
 
 " try to get some idea of which OS we're on
