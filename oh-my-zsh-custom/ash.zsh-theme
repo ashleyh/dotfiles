@@ -20,8 +20,17 @@ fi
 
 _prompt_who="%{$_prompt_who_style%}❨%n@%m❩%{%K{black}%}"
 
-hg_prompt_info() {
-}
+if [ -n "$(hg showconfig extensions.prompt)" ] ; then
+  hg_prompt_info() {
+    hg prompt --angle-brackets \
+  "$ZSH_THEME_GIT_PROMPT_PREFIX"\
+  '<branch>'\
+  "$ZSH_THEME_GIT_PROMPT_SUFFIX" 2>/dev/null
+  }
+else
+  hg_prompt_info() {
+  }
+fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ❨%{%B%F{blue}%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%}❩"
