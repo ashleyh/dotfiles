@@ -49,3 +49,11 @@ alias v=vim
 
 export SAVEHIST=999999
 export HISTSIZE=999999
+
+alias apts='aptitude search'
+alias sai='sudo aptitude install'
+alias py='python2'
+alias py3='python3'
+alias f='find'
+alias hi='history'
+alias g='grep'
