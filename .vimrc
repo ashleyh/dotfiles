@@ -73,16 +73,16 @@ endfunc
 func! MaybeShowCompletions()
   if pumvisible()
     return "\<C-N>"
-  else
-    if col(".") > indent(line(".")) + 1
-      " we're after a non-blank character, show the menu and
-      " highlight the first entry
-      return "\<C-N>\<C-R>=MaybeHighlightFirstEntry()\<CR>"
-    else
-      " the user probably just wants to indent...
-      return "\<Tab>"
-    endif
   endif
+
+  if col(".") > indent(line(".")) + 1
+    " we're after a non-blank character, show the menu and
+    " highlight the first entry
+    return "\<C-N>\<C-R>=MaybeHighlightFirstEntry()\<CR>"
+  endif
+
+  " the user probably just wants to indent...
+  return "\<Tab>"
 endfunc
 
 " tab settings
