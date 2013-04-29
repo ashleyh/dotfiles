@@ -18,7 +18,7 @@ else
   _prompt_who_style="%F{black}%K{blue}"
 fi
 
-_prompt_who="%{$_prompt_who_style%}❨%n@%m❩%{%K{black}%}"
+_prompt_who="%{$_prompt_who_style%}(%n@%m)%{%K{black}%}"
 
 if [ -n "$(hg showconfig extensions.prompt)" ] ; then
   hg_prompt_info() {
@@ -32,8 +32,8 @@ else
   }
 fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" ❨%{%B%F{blue}%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%}❩"
+ZSH_THEME_GIT_PROMPT_PREFIX=" (%{%B%F{blue}%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%})"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{%F{red}%}*%{%f%k%b%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
@@ -44,7 +44,7 @@ PROMPT=\
 %{%f%k%b%}'\
 "$_prompt_who"\
 '%{%B%F{green}%} '\
-'%{%b%F{yellow}%K{black}%}❨%~❩'\
+'%{%b%F{yellow}%K{black}%}(%~)'\
 '%{%B%F{green}%}$(git_prompt_info)'\
 '%{%B%F{green}%}$(hg_prompt_info)'\
 '%E
