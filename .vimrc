@@ -119,7 +119,7 @@ vmap <S-Tab> <gv
 syntax enable
 let syntastic_enable_signs=1
 let syntastic_auto_loc_list=1
-let syntastic_mode_map = { 'passive_filetypes': ['scala'] }
+let syntastic_mode_map = { 'passive_filetypes': ['scala', 'html'] }
 
 " colorscheme
 set background=dark
