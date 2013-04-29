@@ -170,3 +170,7 @@ set sidescrolloff=5
 nnoremap Y y$
 
 nmap <Leader>nh :noh<CR>
+
+let g:neocomplcache_enable_at_startup=1
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
