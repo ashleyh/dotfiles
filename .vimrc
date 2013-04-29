@@ -128,7 +128,8 @@ colorscheme solarized
 " don't wrap lines, instead show arrows in the margin of lines
 " that are too long
 set nowrap
-set listchars=extends:»,precedes:«
+set list
+set listchars=tab:>-,extends:»,precedes:«
 
 " search as you type
 set incsearch
