@@ -46,3 +46,6 @@ zshrc_local="$HOME/.zshrc.local"
 
 export EDITOR=vim VISUAL=vim
 alias v=vim
+
+export SAVEHIST=999999
+export HISTSIZE=999999
