@@ -10,11 +10,21 @@ _prompt_char() {
   fi
 }
 
+if [ $EUID -eq 0 ]; then
+  _prompt_who_style="%F{black}%K{red}"
+elif [ -n "$SSH_CLIENT" ]; then
+  _prompt_who_style="%F{black}%K{yellow}"
+else
+  _prompt_who_style="%F{black}%K{blue}"
+fi
+
+_prompt_who="%{$_prompt_who_style%}❨%n@%m❩%{%K{black}%}"
+
 hg_prompt_info() {
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" [%{%B%F{blue}%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%}]"
+ZSH_THEME_GIT_PROMPT_PREFIX=" ❨%{%B%F{blue}%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%}❩"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{%F{red}%}*%{%f%k%b%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
@@ -23,18 +33,13 @@ PROMPT=\
 )'\
 '
 %{%f%k%b%}'\
-'%{%K{black}%B%F{green}%}%n'\
-'%{%B%F{blue}%}@'\
-'%{%B%F{cyan}%}%m'\
+"$_prompt_who"\
 '%{%B%F{green}%} '\
-'%{%b%F{yellow}%K{black}%}%~'\
+'%{%b%F{yellow}%K{black}%}❨%~❩'\
 '%{%B%F{green}%}$(git_prompt_info)'\
 '%{%B%F{green}%}$(hg_prompt_info)'\
 '%E
 '\
-'%{%f%k%b%}'\
-'%{%K{black}%}$(_prompt_char)'\
-'%{%K{black}%} %#'\
-'%{%f%k%b%} '
+'%{%f%k%b%}$ '
 
 RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'

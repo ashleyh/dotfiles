@@ -8,7 +8,7 @@ ZSH_CUSTOM=$HOME/dotfiles/oh-my-zsh-custom
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
+ZSH_THEME="ash"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
