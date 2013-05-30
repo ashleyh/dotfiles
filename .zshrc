@@ -12,7 +12,7 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/oh-my-zsh-custom
 ZSH_THEME="ash"
 COMPLETION_WAITING_DOTS="true"
-plugins=(mercurial git zsh-syntax-highlighting command-not-found)
+plugins=(mercurial git zsh-syntax-highlighting command-not-found zaw)
 
 source $ZSH/oh-my-zsh.sh
 
