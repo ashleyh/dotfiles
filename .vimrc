@@ -9,12 +9,14 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'vim-scripts/rainbow_parentheses.vim'
+Bundle 'sgeb/vim-diff-fold'
 
 filetype plugin indent on
 " }}}
 
 " status line {{{
-function ShortCwd()
+function! ShortCwd()
   return fnamemodify(getcwd(), ':~')
 endfunction
 
@@ -174,3 +176,16 @@ nmap <Leader>nh :noh<CR>
 let g:neocomplcache_enable_at_startup=1
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ %m
+set errorformat+=,%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-C\ %#[warn]\ %m
+set errorformat+=,%-G%.%#
+noremap <silent> <Leader>ff :cf /tmp/sbt.quickfix<CR>
+noremap <silent> <Leader>fn :cn<CR>
+
+autocmd FileType scala
+  \ exe "RainbowParenthesesLoadBraces" |
+  \ exe "RainbowParenthesesLoadRound"  |
+  \ exe "RainbowParenthesesLoadSquare"
+
+nmap <Leader>r :RainbowParenthesesToggleAll<CR>
