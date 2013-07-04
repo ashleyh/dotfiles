@@ -11,6 +11,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle 'sgeb/vim-diff-fold'
+Bundle 'Shougo/neosnippet'
+Bundle 'honza/vim-snippets'
+Bundle 'molokai'
 
 filetype plugin indent on
 " }}}
@@ -174,8 +177,19 @@ nnoremap Y y$
 nmap <Leader>nh :noh<CR>
 
 let g:neocomplcache_enable_at_startup=1
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+imap <C-l>     <Plug>(neosnippet_jump)
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ %m
 set errorformat+=,%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-C\ %#[warn]\ %m
