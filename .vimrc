@@ -14,6 +14,9 @@ Bundle 'sgeb/vim-diff-fold'
 Bundle 'Shougo/neosnippet'
 Bundle 'honza/vim-snippets'
 Bundle 'molokai'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-indent'
 
 filetype plugin indent on
 " }}}
@@ -96,11 +99,6 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" ...except python
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-
-" try to rescue javascript indent
-autocmd FileType javascript setlocal nocindent
 
 " hide silly gui toolbar
 set guioptions-=T
@@ -180,26 +178,45 @@ let g:neocomplcache_enable_at_startup=1
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 imap <C-l>     <Plug>(neosnippet_jump)
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ %m
-set errorformat+=,%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-C\ %#[warn]\ %m
-set errorformat+=,%-G%.%#
-noremap <silent> <Leader>ff :cf /tmp/sbt.quickfix<CR>
-noremap <silent> <Leader>fn :cn<CR>
-
-autocmd FileType scala
-  \ exe "RainbowParenthesesLoadBraces" |
-  \ exe "RainbowParenthesesLoadRound"  |
-  \ exe "RainbowParenthesesLoadSquare"
+augroup ash 
+  au!
+  au FileType scala
+    \ exe "RainbowParenthesesLoadBraces" |
+    \ exe "RainbowParenthesesLoadRound"  |
+    \ exe "RainbowParenthesesLoadSquare"
+  au FileType python setlocal shiftwidth=4 softtabstop=4
+  au FileType javascript setlocal nocindent
+  au BufWritePost .vimrc so %
+  au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
+  au WinEnter,InsertLeave * set cursorline | set cursorcolumn
+augroup END
 
 nmap <Leader>r :RainbowParenthesesToggleAll<CR>
+
+noremap H ^
+noremap L $
+vnoremap L g_
+
+set virtualedit+=block
+
+set guioptions-=m
+noremap <Leader>y "+y
+vnoremap <Leader>y "+y
+
+noremap <Leader>ev :vsplit ~/.vimrc<CR>
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" selections from tpope/vim-sensible
+set backspace=indent,eol,start
+set autoread
+set history=1000
+set ttimeout
+set ttimeoutlen=50

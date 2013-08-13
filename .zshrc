@@ -37,9 +37,9 @@ alias apts='aptitude search'
 alias sai='sudo aptitude install'
 alias py='python2'
 alias py3='python3'
-alias f='find'
 alias hi='history'
 alias g='grep'
+alias q='exit'
 
 function hgdv() {
   hg diff "$@" | view -
@@ -47,6 +47,10 @@ function hgdv() {
 
 function hglg() {
   hg glog --color=always "$@" | less -R
+}
+
+function f() {
+  find "$@" 2>/dev/null
 }
 
 _maybe_source "$HOME/.zshrc.after"
