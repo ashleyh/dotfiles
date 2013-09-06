@@ -25,13 +25,30 @@ bindkey -s '^[gl' '^[qdirs -p^j'
 bindkey -s '^[go' '^[qpushd -1^j'
 bindkey -s '^[gi' '^[qpushd +0^j'
 
+export UNAME="$( uname )"
+
 export EDITOR=vim VISUAL=vim
 alias v=vim
-alias l='ls --color=tty'
-alias ll='ls --color=tty -lh'
+if [[ "$UNAME" == "Darwin" ]] ; then
+  alias l='ls -G'
+else
+  alias l='ls --color=tty'
+fi
+alias ll='l -lh'
 
 export SAVEHIST=999999
 export HISTSIZE=999999
+
+if [[ "$UNAME" == "Darwin" ]] ; then
+  # defeat special BSD find
+  find() {
+    if [[ ( $# == 0 ) || ( "$1" =~ "-.*" ) ]] ; then
+      /usr/bin/find . "$@"
+    else
+      /usr/bin/find "$@"
+    fi
+  }
+fi
 
 alias apts='aptitude search'
 alias sai='sudo aptitude install'
