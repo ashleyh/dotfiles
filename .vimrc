@@ -17,6 +17,7 @@ Bundle 'molokai'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-indent'
+Bundle 'mattn/emmet-vim'
 
 filetype plugin indent on
 " }}}
