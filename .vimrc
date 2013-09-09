@@ -104,8 +104,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" hide silly gui toolbar
-set guioptions-=T
+" tone down the GUI
+set guioptions=e
+set visualbell
 
 " set good font
 if g:uname == "Linux"
@@ -206,7 +207,6 @@ vnoremap L g_
 
 set virtualedit+=block
 
-set guioptions-=m
 noremap <Leader>y "+y
 vnoremap <Leader>y "+y
 
