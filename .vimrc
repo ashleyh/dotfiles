@@ -1,7 +1,5 @@
 set nocompatible
 
-call pathogen#infect()
-
 " vundle {{{
 filetype off
 
@@ -18,6 +16,11 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'mattn/emmet-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 " }}}
