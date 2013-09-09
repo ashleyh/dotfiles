@@ -50,7 +50,7 @@ set wildignore+=*.class,*.o,*.pyc,*.pyo
 set showmode
 set showcmd
 
-" options for ins-completion
+" ins-completion {{{
 set completeopt=longest,menuone,preview
 set ignorecase
 
@@ -96,13 +96,13 @@ func! MaybeShowCompletions()
   " the user probably just wants to indent...
   return "\<Tab>"
 endfunc
+" }}}
 
 " tab settings
 set autoindent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-
 
 " hide silly gui toolbar
 set guioptions-=T
@@ -124,9 +124,6 @@ vmap <S-Tab> <gv
 
 " syntax
 syntax enable
-let syntastic_enable_signs=1
-let syntastic_auto_loc_list=1
-let syntastic_mode_map = { 'passive_filetypes': ['scala', 'html'] }
 
 " colorscheme
 set background=dark
