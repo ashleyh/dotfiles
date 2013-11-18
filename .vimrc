@@ -21,6 +21,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on
 " }}}
@@ -128,7 +130,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme solarized
+colorscheme sol2
 
 " don't wrap lines, instead show arrows in the margin of lines
 " that are too long
@@ -193,7 +195,9 @@ augroup ash
     \ exe "RainbowParenthesesLoadRound"  |
     \ exe "RainbowParenthesesLoadSquare"
   au FileType python setlocal shiftwidth=4 softtabstop=4
+  au FileType htmldjango setlocal shiftwidth=4 softtabstop=4
   au FileType javascript setlocal nocindent
+  au FileType diff setlocal foldlevel=99
   au BufWritePost .vimrc so %
   au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
   au WinEnter,InsertLeave * set cursorline | set cursorcolumn
@@ -221,3 +225,10 @@ set autoread
 set history=1000
 set ttimeout
 set ttimeoutlen=50
+
+let NERDTreeIgnore=['\.pyc$']
+
+set cm=blowfish
+
+map <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
+
