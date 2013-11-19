@@ -68,14 +68,10 @@ export SAVEHIST=999999
 export HISTSIZE=999999
 
 if [[ "$UNAME" == "Darwin" ]] ; then
-  # defeat special BSD find
-  find() {
-    if [[ ( $# == 0 ) || ( "$1" =~ "-.*" ) ]] ; then
-      /usr/bin/find . "$@"
-    else
-      /usr/bin/find "$@"
-    fi
-  }
+  if [[ ${+commands[gfind]} == 1 ]] ; then
+    # from brew install findutils
+    alias find=gfind
+  fi
 fi
 
 if [[ "$UNAME" == "Darwin" ]] ; then
@@ -117,5 +113,7 @@ function f() {
 #export REPORTTIME=0
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export WORKON_HOME="$HOME/.virtualenvs"
+
+workon_cwd
 
 _maybe_source "$HOME/.zshrc.after"
