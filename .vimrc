@@ -252,3 +252,7 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 " }}}
+
+nnoremap <Leader>t :CtrlPTag<CR>
+" nb set PATH in .zshenv because vim starts a non-interactive non-login shell
+nnoremap <Leader>c :!ctags<CR>
