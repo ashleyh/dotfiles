@@ -21,9 +21,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
+Bundle 'ashleyh/python-mode'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'majutsushi/tagbar'
+Bundle 'Yggdroot/indentLine'
+Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
 " }}}
@@ -256,3 +261,13 @@ endif
 nnoremap <Leader>t :CtrlPTag<CR>
 " nb set PATH in .zshenv because vim starts a non-interactive non-login shell
 nnoremap <Leader>c :!ctags<CR>
+
+let g:mta_filetypes = {
+  \ 'html' : 1,
+  \ 'xhtml' : 1,
+  \ 'xml' : 1,
+  \ 'jinja' : 1,
+  \ 'htmldjango' : 1,
+  \}
+
+let g:pymode_rope_vim_completion = 0
