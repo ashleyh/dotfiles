@@ -29,6 +29,7 @@ Bundle 'Valloric/MatchTagAlways'
 Bundle 'majutsushi/tagbar'
 Bundle 'Yggdroot/indentLine'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ervandew/supertab'
 
 filetype plugin indent on
 " }}}
@@ -58,53 +59,8 @@ set wildignore+=*.class,*.o,*.pyc,*.pyo
 set showmode
 set showcmd
 
-" ins-completion {{{
 set completeopt=longest,menuone,preview
 set ignorecase
-
-" make <CR> always accept a completion instead of 
-" adding a newline
-inoremap <expr> <CR> MaybeAcceptCompletion()
-
-" tab to show ins-completionmenu
-inoremap <expr> <Tab> MaybeShowCompletions()
-
-" accept completion if ins-completionemnu is visible
-func! MaybeAcceptCompletion()
-  if pumvisible()
-    return "\<C-Y>"
-  else
-    return "\<CR>"
-  endif
-endfunc
-
-" highlight fist completion of ins-completionmenu is visible
-" (so <Tab><Enter> works)
-func! MaybeHighlightFirstEntry()
-  if pumvisible()
-    return "\<Down>"
-  else
-    return ""
-  endif
-endfunc
-
-" <Tab> handler: either show ins-completionmenu or highlight
-" next completion
-func! MaybeShowCompletions()
-  if pumvisible()
-    return "\<C-N>"
-  endif
-
-  if col(".") > indent(line(".")) + 1
-    " we're after a non-blank character, show the menu and
-    " highlight the first entry
-    return "\<C-N>\<C-R>=MaybeHighlightFirstEntry()\<CR>"
-  endif
-
-  " the user probably just wants to indent...
-  return "\<Tab>"
-endfunc
-" }}}
 
 " tab settings
 set autoindent
@@ -271,3 +227,4 @@ let g:mta_filetypes = {
   \}
 
 let g:pymode_rope_vim_completion = 0
+let g:SuperTabCrMapping = 0
