@@ -53,6 +53,7 @@ if has("unix")
   let g:uname = substitute(system("uname"), "\n$", "", "")
 endif
 
+" set {{{
 set wildmode=list:longest
 set wildignorecase
 set wildignore+=*.class,*.o,*.pyc,*.pyo
@@ -69,31 +70,8 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" tone down the GUI
-set guioptions=e
-set visualbell
-
-" set good font
-if g:uname == "Linux"
-  set guifont=Droid\ Sans\ Mono\ 10.5
-elseif g:uname == "Darwin"
-  set guifont=Menlo\ Regular:h13
-endif
-
 " enable mouse in terminal
 set mouse=a
-
-" quickly indent/dedent
-imap <S-Tab> <C-d>
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-
-" syntax
-syntax enable
-
-" colorscheme
-set background=dark
-colorscheme solarized
 
 " don't wrap lines, instead show arrows in the margin of lines
 " that are too long
@@ -116,41 +94,46 @@ set colorcolumn=80
 " use {{{ }}} to mark folds manually
 set foldmethod=marker
 
-" stop ctrlp trying to be smart
-let g:ctrlp_working_path_mode=''
-let g:ctrlp_custom_ignore={
-  \ 'dir': '\v[\/](target|\.hg|\.svn|__mycache__)$',
-  \ 'file': '\v\.jar$|\.class$'
-  \ }
-
-" browse parent directory
-map g/ :e %:p:h<CR>
-
 " /g is a pain
 set gdefault
-
-" use ack.vim with ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " leave some space at edge of window
 set scrolloff=3
 set sidescrolloff=5
 
-" i don't know why this isn't the default
-nnoremap Y y$
+set virtualedit+=block
 
-nmap <Leader>nh :noh<CR>
+" selections from tpope/vim-sensible
+set backspace=indent,eol,start
+set autoread
+set history=1000
+set ttimeout
+set ttimeoutlen=50
 
-let g:neocomplcache_enable_at_startup=1
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-imap <C-l>     <Plug>(neosnippet_jump)
+set cm=blowfish
+" }}}
 
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
+" gui, font, colorscheme {{{
+" tone down the GUI
+set guioptions=e
+set visualbell
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" set good font
+if g:uname == "Linux"
+  set guifont=Droid\ Sans\ Mono\ 10.5
+elseif g:uname == "Darwin"
+  set guifont=Menlo\ Regular:h13
+endif
 
+" colorscheme
+set background=dark
+colorscheme solarized
+
+" syntax
+syntax enable
+" }}}
+
+" au {{{
 augroup ash 
   au!
   au FileType scala
@@ -165,36 +148,9 @@ augroup ash
   au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
   au WinEnter,InsertLeave * set cursorline | set cursorcolumn
 augroup END
+" }}}
 
-nmap <Leader>r :RainbowParenthesesToggleAll<CR>
-
-noremap H ^
-noremap L $
-vnoremap L g_
-
-set virtualedit+=block
-
-noremap <Leader>y "+y
-vnoremap <Leader>y "+y
-
-noremap <Leader>ev :vsplit ~/.vimrc<CR>
-
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-
-" selections from tpope/vim-sensible
-set backspace=indent,eol,start
-set autoread
-set history=1000
-set ttimeout
-set ttimeoutlen=50
-
-let NERDTreeIgnore=['\.pyc$']
-
-set cm=blowfish
-
-nnoremap <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
-
+" backup/undo/swap files {{{
 set backup
 set undofile
 
@@ -214,11 +170,13 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 " }}}
+" }}}
 
-nnoremap <Leader>t :CtrlPTag<CR>
-" nb set PATH in .zshenv because vim starts a non-interactive non-login shell
-nnoremap <Leader>c :!ctags<CR>
+" plugin stuff {{{
+" use ack.vim with ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
+let NERDTreeIgnore=['\.pyc$']
 let g:mta_filetypes = {
   \ 'html' : 1,
   \ 'xhtml' : 1,
@@ -229,3 +187,60 @@ let g:mta_filetypes = {
 
 let g:pymode_rope_vim_completion = 0
 let g:SuperTabCrMapping = 0
+
+" ctrlp {{{
+" stop ctrlp trying to be smart
+let g:ctrlp_working_path_mode=''
+let g:ctrlp_custom_ignore={
+  \ 'dir': '\v[\/](target|\.hg|\.svn|__mycache__)$',
+  \ 'file': '\v\.jar$|\.class$'
+  \ }
+" }}}
+
+" neosnippet {{{
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" }}}
+"}}}
+
+" mappings {{{
+" quickly indent/dedent
+imap <S-Tab> <C-d>
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+" browse parent directory
+map g/ :e %:p:h<CR>
+
+" i don't know why this isn't the default
+nnoremap Y y$
+
+nmap <Leader>nh :noh<CR>
+
+noremap H ^
+noremap L $
+vnoremap L g_
+
+noremap <Leader>y "+y
+vnoremap <Leader>y "+y
+
+noremap <Leader>ev :vsplit ~/.vimrc<CR>
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" nb set PATH in .zshenv because vim starts a non-interactive non-login shell
+nnoremap <Leader>c :!ctags<CR>
+
+nmap <Leader>r :RainbowParenthesesToggleAll<CR>
+
+nnoremap <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
+
+nnoremap <Leader>t :CtrlPTag<CR>
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <C-l> <Plug>(neosnippet_jump)
+" }}}
