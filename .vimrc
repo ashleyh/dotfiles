@@ -30,6 +30,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Yggdroot/indentLine'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ervandew/supertab'
+Bundle 'ashleyh/vim-colors-solarized'
 
 filetype plugin indent on
 " }}}
@@ -92,7 +93,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme sol2
+colorscheme solarized
 
 " don't wrap lines, instead show arrows in the margin of lines
 " that are too long
