@@ -227,7 +227,7 @@ vnoremap L g_
 noremap <Leader>y "+y
 vnoremap <Leader>y "+y
 
-noremap <Leader>ev :vsplit ~/.vimrc<CR>
+noremap <Leader>ev :exe 'vsplit ' . resolve(expand('~/.vimrc'))<CR>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
