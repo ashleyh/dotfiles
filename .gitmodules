@@ -7,6 +7,6 @@
 [submodule "oh-my-zsh-custom/plugins/zaw"]
 	path = oh-my-zsh-custom/plugins/zaw
 	url = https://github.com/zsh-users/zaw.git
-[submodule ".vim/vundle.git"]
-  	path = .vim/vundle.git
+[submodule ".vim/bundle/vundle"]
+  	path = .vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
