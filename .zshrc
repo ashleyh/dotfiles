@@ -8,6 +8,9 @@ _maybe_source() {
 _maybe_source "$HOME/.zshrc.before"
 _maybe_source "$HOME/.zshrc.local"
 
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
 if [ -n "$DISPLAY" -a -e "$(which gnome-keyring-daemon)" ]; then
   export $(gnome-keyring-daemon -sd)
 fi
@@ -52,6 +55,9 @@ bindkey -s '^[gu' '^[qcd ..^j'
 bindkey -s '^[gl' '^[qdirs -p^j'
 bindkey -s '^[go' '^[qpushd -1^j'
 bindkey -s '^[gi' '^[qpushd +0^j'
+bindkey '^[gz' zaw-cdr
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 
 export UNAME="$( uname )"
 
@@ -97,6 +103,9 @@ alias gl='git pull --ff-only'
 alias ipy='ipython' # as opposed to ironpython
 alias gdvc='git diff --cached'
 alias glggg='git log --graph --decorate --all --max-count=100'
+alias m='./manage.py'
+alias gcl='git clone'
+alias ff='ffind'
 
 function hgdv() {
   hg diff "$@" | view -
