@@ -145,6 +145,7 @@ augroup ash
   au FileType htmldjango setlocal shiftwidth=4 softtabstop=4
   au FileType javascript setlocal nocindent
   au FileType diff setlocal foldlevel=99
+  au FileType gitcommit setlocal foldmethod=manual
   au BufWritePost .vimrc so %
   au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
   au WinEnter,InsertLeave * set cursorline | set cursorcolumn
