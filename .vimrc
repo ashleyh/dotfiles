@@ -31,20 +31,21 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ervandew/supertab'
 Bundle 'ashleyh/vim-colors-solarized'
+Bundle 'itchyny/lightline.vim'
+Bundle 'Julian/vim-textobj-variable-segment'
+Bundle 'tpope/vim-capslock'
+Bundle 'suan/vim-instant-markdown'
+Bundle 'ashleyh/rust.vim'
+Bundle 'tpope/vim-dispatch'
 
 filetype plugin indent on
 " }}}
 
 " status line {{{
-function! ShortCwd()
-  return fnamemodify(getcwd(), ':~')
-endfunction
-
 set laststatus=2
-set statusline=
-set statusline+=%#Normal#%{ShortCwd()}
-set statusline+=%#Keyword#\ %f
-set statusline+=%#Todo#\ %h%r%m
+let g:lightline = {
+\ 'colorscheme': 'solarized',
+\ }
 " }}}
 
 " try to get some idea of which OS we're on
