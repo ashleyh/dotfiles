@@ -10,18 +10,6 @@ fi
 
 _prompt_who="%{$_prompt_who_style%}(%n@%m)%{%K{black}%}"
 
-if [[ -n $(hg showconfig extensions.prompt) ]] ; then
-  hg_prompt_info() {
-    hg prompt --angle-brackets \
-"$ZSH_THEME_GIT_PROMPT_PREFIX"\
-'<branch>'\
-"$ZSH_THEME_GIT_PROMPT_SUFFIX" 2>/dev/null
-  }
-else
-  hg_prompt_info() {
-  }
-fi
-
 venv_prompt_info() {
   if [[ -n $VIRTUAL_ENV ]] ; then
     echo -n "$ZSH_THEME_GIT_PROMPT_PREFIX"\
@@ -36,10 +24,16 @@ keymap_prompt_info() {
   fi
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" (%{%B%F{blue}%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{black}%B%F{green}%})"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{%F{red}%}*%{%f%k%b%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' actionformats ' (%b%c%u) (%a)'
+zstyle ':vcs_info:*' formats ' (%b%c%u)'
+
+autoload -U add-zsh-hook
+autoload -Uz vcs_info
+add-zsh-hook precmd vcs_info
 
 if [[ -z $_prompt_hide_last_status ]] ; then
   _prompt_last_status='%(?..(\$? = $?%)'$'\n)'
@@ -52,8 +46,7 @@ $'\n'\
 "$_prompt_who"\
 '%{%B%F{green}%} '\
 '%{%b%F{yellow}%K{black}%}(%~)'\
-'%{%B%F{green}%}$(git_prompt_info)'\
-'%{%B%F{green}%}$(hg_prompt_info)'\
+'%{%B%F{green}%}$vcs_info_msg_0_'\
 '%{%B%F{green}%}$(venv_prompt_info)'\
 '%E'\
 $'\n'\
