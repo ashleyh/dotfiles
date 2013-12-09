@@ -21,7 +21,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ashleyh/python-mode'
+Bundle 'klen/python-mode'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
@@ -37,6 +37,7 @@ Bundle 'tpope/vim-capslock'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ashleyh/rust.vim'
 Bundle 'tpope/vim-dispatch'
+Bundle 'ashleyh/vim-textobj-nl'
 
 filetype plugin indent on
 " }}}
@@ -188,6 +189,14 @@ let g:mta_filetypes = {
   \}
 
 let g:pymode_rope_vim_completion = 0
+let g:pymode_lint_checkers = [
+\ 'pylint',
+\ 'pep8',
+\ 'mccabe',
+\ 'pyflakes',
+\]
+let g:pymode_lint_ignore = 'C0111'
+
 let g:SuperTabCrMapping = 0
 
 " ctrlp {{{
@@ -235,7 +244,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " nb set PATH in .zshenv because vim starts a non-interactive non-login shell
-nnoremap <Leader>c :!ctags<CR>
+nnoremap <Leader>ct :!ctags<CR>
 
 nmap <Leader>r :RainbowParenthesesToggleAll<CR>
 
