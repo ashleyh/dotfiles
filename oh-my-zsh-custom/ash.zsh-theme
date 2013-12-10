@@ -12,9 +12,7 @@ _prompt_who="%{$_prompt_who_style%}(%n@%m)%{%K{black}%}"
 
 venv_prompt_info() {
   if [[ -n $VIRTUAL_ENV ]] ; then
-    echo -n "$ZSH_THEME_GIT_PROMPT_PREFIX"\
-"${VIRTUAL_ENV:t}"\
-"$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo -n " (${VIRTUAL_ENV:t})"
   fi
 }
 
