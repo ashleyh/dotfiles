@@ -17,16 +17,6 @@ fi
 
 setopt interactivecomments
 
-
-
 export EDITOR=vim VISUAL=vim
-
-export SAVEHIST=999999
-export HISTSIZE=999999
-
-
-
-#export REPORTTIME=0
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export WORKON_HOME="$HOME/.virtualenvs"
-
