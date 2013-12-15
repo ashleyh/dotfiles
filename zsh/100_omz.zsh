@@ -23,7 +23,6 @@ libs=(
   functions
   grep
   history
-  key-bindings
   misc
   spectrum
   termsupport
