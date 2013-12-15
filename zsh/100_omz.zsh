@@ -15,7 +15,6 @@ plugins=(
 )
 
 libs=(
-  aliases
   completion
   correction
   directories

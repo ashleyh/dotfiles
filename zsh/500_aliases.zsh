@@ -1,4 +1,5 @@
 
+alias history='fc -l 1'
 alias v=vim
 alias apts='aptitude search'
 alias sai='sudo aptitude install'
