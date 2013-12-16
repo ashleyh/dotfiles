@@ -17,7 +17,6 @@ libs=(
   completion
   correction
   directories
-  edit-command-line
   functions
   grep
   history
