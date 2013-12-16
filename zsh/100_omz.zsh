@@ -5,7 +5,6 @@ plugins=(
   mercurial
   git
   command-not-found
-  vi-mode
   brew
   colored-man
   django
