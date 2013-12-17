@@ -17,4 +17,3 @@ libs=(
 for lib ($libs); do
   source $ZSH/lib/$lib.zsh
 done
-

@@ -7,7 +7,6 @@ plugins=(
   django
   history
   pip
-  virtualenvwrapper
 )
 
 for plugin ($plugins); do
