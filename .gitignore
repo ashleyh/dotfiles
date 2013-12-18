@@ -2,3 +2,4 @@
 .vim/bundle/*/
 !.vim/bundle/vundle/
 .vim/tmp/
+zsh_local/
