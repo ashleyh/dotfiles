@@ -1,0 +1,6 @@
+.ropeproject
+tags
+.ctags
+.*.swp
+.coverage
+.tox

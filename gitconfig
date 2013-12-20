@@ -1,0 +1,10 @@
+[color]
+  ui = true
+[core]
+  excludesfile = ~/dotfiles/gitignore_global
+[push]
+  default = simple
+[url "ssh://git@github.com/"]
+  insteadOf = gh:
+[url "ssh://git@github.com/ashleyh/"]
+  insteadOf = gha:
