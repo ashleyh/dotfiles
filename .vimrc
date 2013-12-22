@@ -148,7 +148,10 @@ augroup ash
   au FileType javascript setlocal nocindent
   au FileType diff setlocal foldlevel=99
   au FileType gitcommit setlocal foldmethod=manual
-  au BufWritePost .vimrc so %
+  au BufWritePost .vimrc
+    \ if expand('%') !~# '^fugitive://' |
+    \   source %                        |
+    \ endif
   au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
   au WinEnter,InsertLeave * set cursorline | set cursorcolumn
 augroup END
