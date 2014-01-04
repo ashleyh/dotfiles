@@ -9,8 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle 'sgeb/vim-diff-fold'
-Bundle 'Shougo/neosnippet'
-Bundle 'honza/vim-snippets'
 Bundle 'molokai'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kana/vim-textobj-user'
@@ -40,6 +38,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'ashleyh/vim-textobj-nl'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'PotatoesMaster/i3-vim-syntax'
+Bundle 'SirVer/ultisnips'
 
 filetype plugin indent on
 " }}}
@@ -213,13 +212,7 @@ let g:ctrlp_custom_ignore={
   \ }
 " }}}
 
-" neosnippet {{{
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-" }}}
+let g:UltiSnipsExpandTrigger = '<c-j>'
 "}}}
 
 " mappings {{{
@@ -256,7 +249,4 @@ nmap <Leader>r :RainbowParenthesesToggleAll<CR>
 nnoremap <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
 
 nnoremap <Leader>t :CtrlPTag<CR>
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <C-l> <Plug>(neosnippet_jump)
 " }}}
