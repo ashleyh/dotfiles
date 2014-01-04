@@ -16,6 +16,8 @@ alias m='./manage.py'
 alias gcl='git clone'
 alias ff='ffind'
 alias ll='l -lh'
+alias vv='v ~/dotfiles/.vimrc'
+alias vz='v ~/dotfiles/zsh'
 
 function hgdv() {
   hg diff "$@" | view -
