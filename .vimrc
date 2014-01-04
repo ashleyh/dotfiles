@@ -91,9 +91,6 @@ set hlsearch
 " line numbers
 set number
 
-" column 80 marker
-set colorcolumn=80
-
 " use {{{ }}} to mark folds manually
 set foldmethod=marker
 
@@ -140,6 +137,10 @@ syntax enable
 augroup ash 
   au!
   au FileType scala
+    \ exe "RainbowParenthesesLoadBraces" |
+    \ exe "RainbowParenthesesLoadRound"  |
+    \ exe "RainbowParenthesesLoadSquare"
+  au FileType clojure
     \ exe "RainbowParenthesesLoadBraces" |
     \ exe "RainbowParenthesesLoadRound"  |
     \ exe "RainbowParenthesesLoadSquare"
@@ -203,6 +204,11 @@ let g:pymode_lint_ignore = 'C0111,C0301,E501'
 
 let g:SuperTabCrMapping = 0
 
+let g:indentLine_char = '┆'
+
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_slow = 1
+
 " ctrlp {{{
 " stop ctrlp trying to be smart
 let g:ctrlp_working_path_mode=''
@@ -249,4 +255,22 @@ nmap <Leader>r :RainbowParenthesesToggleAll<CR>
 nnoremap <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
 
 nnoremap <Leader>t :CtrlPTag<CR>
+" }}}
+
+" ideas from Damian Conway's talk {{{
+call matchadd('Todo', '\%>80v.*', 1000)
+
+nnoremap <silent> n   n:call HLNext(0.1)<cr>
+nnoremap <silent> N   N:call HLNext(0.1)<cr>
+
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('Todo', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
 " }}}
