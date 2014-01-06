@@ -39,6 +39,7 @@ Bundle 'ashleyh/vim-textobj-nl'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'PotatoesMaster/i3-vim-syntax'
 Bundle 'SirVer/ultisnips'
+Bundle 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on
 " }}}
