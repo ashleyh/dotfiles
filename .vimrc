@@ -112,6 +112,8 @@ set ttimeout
 set ttimeoutlen=50
 
 set cm=blowfish
+
+let mapleader = ","
 " }}}
 
 " gui, font, colorscheme {{{
@@ -222,7 +224,7 @@ let g:ctrlp_custom_ignore={
 let g:UltiSnipsExpandTrigger = '<c-j>'
 "}}}
 
-" mappings {{{
+" mappings {{
 " quickly indent/dedent
 imap <S-Tab> <C-d>
 vmap <Tab> >gv
@@ -236,9 +238,17 @@ nnoremap Y y$
 
 nmap <Leader>nh :noh<CR>
 
+" hat-tip sjl
 noremap H ^
 noremap L $
 vnoremap L g_
+noremap K :q<CR>
+
+" note to self: map these to something useful
+nmap M <nop>
+nmap Q <nop>
+nmap R <nop>
+nmap U <nop>
 
 noremap <Leader>y "+y
 vnoremap <Leader>y "+y
@@ -256,6 +266,9 @@ nmap <Leader>r :RainbowParenthesesToggleAll<CR>
 nnoremap <Leader>pi "zyiw:Ack! -Gpy 'import\b.*\b<C-R>z\b'<CR>
 
 nnoremap <Leader>t :CtrlPTag<CR>
+
+nmap <C-s> :w<CR>
+imap <C-s> <C-o>:w<CR>
 " }}}
 
 " ideas from Damian Conway's talk {{{
