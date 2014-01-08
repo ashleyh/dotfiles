@@ -40,6 +40,7 @@ Bundle 'mitsuhiko/vim-jinja'
 Bundle 'PotatoesMaster/i3-vim-syntax'
 Bundle 'SirVer/ultisnips'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'guns/vim-clojure-static'
 
 filetype plugin indent on
 " }}}
