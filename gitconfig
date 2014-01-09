@@ -8,3 +8,7 @@
   insteadOf = gh:
 [url "ssh://git@github.com/ashleyh/"]
   insteadOf = gha:
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = bb:
+[url "ssh://git@bitbucket.org/aph/"]
+  insteadOf = bba:
