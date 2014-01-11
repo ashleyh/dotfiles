@@ -18,6 +18,7 @@ alias ff='ffind'
 alias ll='l -lh'
 alias vv='v ~/dotfiles/.vimrc'
 alias vz='v ~/dotfiles/zsh'
+alias httpd='py -m SimpleHTTPServer'
 
 function hgdv() {
   hg diff "$@" | view -
