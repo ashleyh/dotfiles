@@ -1,0 +1,6 @@
+#command
+' forw-search \^\\s*
+#line-edit
+^W word-backspace
+^A home
+^E end
