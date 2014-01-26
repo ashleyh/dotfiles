@@ -10,3 +10,7 @@
 [submodule ".vim/bundle/vundle"]
   	path = .vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "oh-my-zsh-custom/plugins/zsh-mouse"]
+	path = oh-my-zsh-custom/plugins/zsh-mouse
+	url = https://github.com/ashleyh/zsh-mouse.git
+	branch = ash
