@@ -1,5 +1,7 @@
 # based on blinks
 
+setopt prompt_subst
+
 if [[ $EUID -eq 0 ]] ; then
   _prompt_who_style="%F{black}%K{red}"
 elif [[ -n $SSH_CLIENT ]] ; then
