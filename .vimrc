@@ -3,6 +3,10 @@ set nocompatible
 " vundle {{{
 filetype off
 
+if exists("$GOROOT")
+  set rtp+=$GOROOT/misc/vim
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
