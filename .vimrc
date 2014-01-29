@@ -163,6 +163,7 @@ augroup ash
     \ endif
   au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
   au WinEnter,InsertLeave * set cursorline | set cursorcolumn
+  au FileType snippets setlocal noet sw=0 sts=0
 augroup END
 " }}}
 
@@ -227,6 +228,7 @@ let g:ctrlp_custom_ignore={
 " }}}
 
 let g:UltiSnipsExpandTrigger = '<c-j>'
+let g:UltiSnipsEditSplit = 'vertical'
 "}}}
 
 " mappings {{
@@ -259,6 +261,7 @@ noremap <Leader>y "+y
 vnoremap <Leader>y "+y
 
 noremap <Leader>ev :exe 'vsplit ' . resolve(expand('~/.vimrc'))<CR>
+noremap <Leader>es :UltiSnipsEdit<CR>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
