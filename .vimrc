@@ -86,7 +86,7 @@ set mouse=a
 " that are too long
 set nowrap
 set list
-set listchars=tab:>-,extends:»,precedes:«
+set listchars=tab:▸\ ,extends:»,precedes:«
 
 " search as you type
 set incsearch
@@ -161,8 +161,14 @@ augroup ash
     \ if expand('%') !~# '^fugitive://' |
     \   source %                        |
     \ endif
-  au WinLeave,InsertEnter * set nocursorline | set nocursorcolumn
-  au WinEnter,InsertLeave * set cursorline | set cursorcolumn
+  au WinLeave,InsertEnter *
+    \ set nocursorline                 |
+    \ set nocursorcolumn               |
+    \ set listchars-=trail:•
+  au WinEnter,InsertLeave *
+    \ set cursorline                   |
+    \ set cursorcolumn                 |
+    \ set listchars+=trail:•
   au FileType snippets setlocal noet sw=0 sts=0
 augroup END
 " }}}
