@@ -216,6 +216,8 @@ let g:pymode_lint_checkers = [
 \ 'pyflakes',
 \]
 let g:pymode_lint_ignore = 'C0111,C0301,E501'
+let g:pymode_folding = 0
+let g:pymode_doc_bind = 'M'
 
 let g:SuperTabCrMapping = 0
 
