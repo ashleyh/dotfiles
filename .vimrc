@@ -268,6 +268,8 @@ nmap U <nop>
 noremap <Leader>y "+y
 vnoremap <Leader>y "+y
 
+noremap <Leader>p "+p
+
 noremap <Leader>ev :exe 'vsplit ' . resolve(expand('~/.vimrc'))<CR>
 noremap <Leader>es :UltiSnipsEdit<CR>
 
