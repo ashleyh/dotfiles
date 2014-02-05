@@ -287,6 +287,9 @@ nnoremap <Leader>t :CtrlPTag<CR>
 
 nmap <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
+
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gs :Gstatus<CR>
 " }}}
 
 " ideas from Damian Conway's talk {{{
