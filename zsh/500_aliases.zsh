@@ -20,6 +20,7 @@ alias vv='v ~/dotfiles/.vimrc'
 alias vz='v ~/dotfiles/zsh'
 alias vi3='v ~/dotfiles/.i3/config'
 alias httpd='py -m SimpleHTTPServer'
+alias dig='dig +short'
 
 function hgdv() {
   hg diff "$@" | view -
