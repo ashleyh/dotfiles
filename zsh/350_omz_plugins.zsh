@@ -1,6 +1,5 @@
 plugins=(
   mercurial
-  git
   command-not-found
   brew
   colored-man
