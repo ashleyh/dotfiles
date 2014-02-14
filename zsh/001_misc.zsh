@@ -3,7 +3,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 export EDITOR=vim
 export LC_CTYPE=$LANG
-export LESS="-R"
+export LESS="-RSi"
 export PAGER="less"
 export VISUAL=vim
 

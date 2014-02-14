@@ -2,7 +2,6 @@ plugins=(
   mercurial
   command-not-found
   brew
-  colored-man
   django
   pip
 )
