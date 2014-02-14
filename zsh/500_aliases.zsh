@@ -16,6 +16,7 @@ alias vz='v ~/dotfiles/zsh'
 alias vi3='v ~/dotfiles/.i3/config'
 alias httpd='py -m SimpleHTTPServer'
 alias dig='dig +short'
+alias h='history'
 
 function hgdv() {
   hg diff "$@" | view -

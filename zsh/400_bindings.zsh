@@ -36,6 +36,7 @@ bindkey "\e[3~" delete-char
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
+bindkey "^[m" copy-prev-shell-word
 # }}}
 bindkey '^[v' vi-cmd-mode
 bindkey -M isearch '^[v' isearch-vi-cmd-mode

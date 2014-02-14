@@ -4,7 +4,6 @@ plugins=(
   brew
   colored-man
   django
-  history
   pip
 )
 
