@@ -1,4 +1,5 @@
 
+alias ap='sudo aptitude'
 alias apts='aptitude search'
 alias dig='dig +short'
 alias g='grep'
@@ -11,6 +12,7 @@ alias m='./manage.py'
 alias py3='python3'
 alias py='python2'
 alias q='exit'
+alias rb='ruby'
 alias sai='sudo aptitude install'
 alias t='python ~/apps/t/t.py --task-dir ~/misc/tasks --list tasks'
 alias v=vim
@@ -24,4 +26,12 @@ function hgdv() {
 
 function hglg() {
   hg glog --color=always "$@" | less -R
+}
+
+function pips() {
+  pip search "$@" | least
+}
+
+function tree() {
+  command tree "$@" | least
 }
