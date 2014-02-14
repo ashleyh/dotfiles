@@ -10,7 +10,6 @@ alias q='exit'
 alias t='python ~/apps/t/t.py --task-dir ~/misc/tasks --list tasks'
 alias ipy='ipython' # as opposed to ironpython
 alias m='./manage.py'
-alias ff='ffind'
 alias ll='l -lh'
 alias vv='v ~/dotfiles/.vimrc'
 alias vz='v ~/dotfiles/zsh'
@@ -24,8 +23,4 @@ function hgdv() {
 
 function hglg() {
   hg glog --color=always "$@" | less -R
-}
-
-function f() {
-  find "$@" 2>/dev/null
 }
