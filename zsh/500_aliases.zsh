@@ -1,6 +1,7 @@
 
 alias ap='sudo aptitude'
 alias apts='aptitude search'
+alias aq='ag -Q'
 alias dig='dig +short'
 alias g='grep'
 alias h='history'
@@ -9,6 +10,7 @@ alias httpd='py -m SimpleHTTPServer'
 alias ipy='ipython' # as opposed to ironpython
 alias ll='l -lh'
 alias m='./manage.py'
+alias pong='ping 8.8.8.8'
 alias py3='python3'
 alias py='python2'
 alias q='exit'
