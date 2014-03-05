@@ -10,12 +10,17 @@ alias gdv='git diff | view -'
 alias gdvc='git diff --cached | view -'
 alias gf='git fetch --all'
 alias gl='git pull --ff-only'
+alias glr='git pull --rebase'
 alias gm='git merge'
 alias gp='git push'
+alias grb='git rebase'
 alias grm='git rm'
+alias grs='git reset'
 alias gs='git status'
 alias gst='git status'
 alias gsta='git stash'
+alias gstal='git stash list'
+alias gstap='git stash pop'
 
 function glg() {
   git log --color --graph --all --max-count=100 \
