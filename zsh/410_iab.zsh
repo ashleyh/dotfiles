@@ -4,6 +4,7 @@ typeset -Ag abbreviations
 abbreviations=(
   "g," "| grep"
   "l," "| less"
+  "s," "| sort"
 )
 
 magic-abbrev-expand() {
