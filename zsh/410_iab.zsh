@@ -1,18 +1,19 @@
-# taken from zsh wiki somewhere
+# adapted from something from the zsh wiki
 
 typeset -Ag abbreviations
 abbreviations=(
-  "g," "| grep"
-  "l," "| less"
-  "s," "| sort"
+  "g" " | grep"
+  "l" " | less"
+  "s" " | sort"
 )
 
 magic-abbrev-expand() {
     emulate -L zsh
     setopt extendedglob
     local MATCH
-    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#,}
-    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    LBUFFER=${LBUFFER%%(#m),[_a-zA-Z0-9]#}
+    local key=$MATCH[2,-1]
+    LBUFFER+=${abbreviations[$key]:-$MATCH}
     zle self-insert
 }
 
