@@ -100,6 +100,9 @@ set number
 " use {{{ }}} to mark folds manually
 set foldmethod=marker
 
+" inspired by http://www.drbunsen.org/vim-croquet
+set foldlevel=99
+
 " /g is a pain
 set gdefault
 
@@ -155,7 +158,6 @@ augroup ash
   au FileType python setlocal shiftwidth=4 softtabstop=4
   au FileType htmldjango setlocal shiftwidth=4 softtabstop=4
   au FileType javascript setlocal nocindent
-  au FileType diff setlocal foldlevel=99
   au FileType gitcommit setlocal foldmethod=manual
   au BufWritePost .vimrc
     \ if expand('%') !~# '^fugitive://' |
