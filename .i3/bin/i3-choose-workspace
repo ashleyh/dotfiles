@@ -1,0 +1,27 @@
+#!/usr/bin/env python2
+
+import subprocess
+import json
+
+def get_workspace_names():
+    proc = subprocess.Popen(['i3-msg', '-t', 'get_workspaces'], stdout=subprocess.PIPE)
+    for obj in json.load(proc.stdout):
+        yield obj['name']
+
+def dmenu(choices, args=[]):
+    proc = subprocess.Popen(['dmenu'] + args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    for choice in choices:
+        proc.stdin.write(choice + '\n')
+    stdout, _ = proc.communicate()
+    return stdout
+
+def switch_to_workspace(workspace):
+    subprocess.check_call(['i3-msg', 'workspace', workspace])
+
+def main():
+    workspaces = get_workspace_names()
+    workspace = dmenu(workspaces, ['-p', 'switch to workspace'])
+    switch_to_workspace(workspace)
+
+if __name__ == '__main__':
+    main()

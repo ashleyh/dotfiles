@@ -92,3 +92,4 @@ bindsym $mod+z border normal
 bindsym $mod+Shift+z border 1pixel
 
 bindsym $mod+semicolon exec ~/.i3/bin/i3-prompt
+bindsym $mod+g exec ~/.i3/bin/i3-choose-workspace
