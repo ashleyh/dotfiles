@@ -45,6 +45,7 @@ Bundle 'PotatoesMaster/i3-vim-syntax'
 Bundle 'SirVer/ultisnips'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'guns/vim-clojure-static'
+Bundle 'greyblake/vim-preview'
 
 filetype plugin indent on
 " }}}
