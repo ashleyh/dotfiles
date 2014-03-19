@@ -1,7 +1,7 @@
 ${HOME}/.less: lesskey
 	lesskey lesskey
 
-layouts=${HOME}/Library/Keyboard\ Layouts
+layouts=${HOME}/Library/Keyboard Layouts
 layout=reallypc.keylayout
 
 .PHONY: install-layout
