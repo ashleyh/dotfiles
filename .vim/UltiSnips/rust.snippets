@@ -1,0 +1,40 @@
+snippet fn "fn" b
+fn $1($2) {
+	$3
+}
+endsnippet
+
+snippet test "unit test" b
+#[test]
+fn test_$1() {
+	$2
+}
+endsnippet
+
+snippet if "if" b
+if $1 {
+	$2
+}
+endsnippet
+
+snippet st "struct" b
+struct $1 {
+	$2
+}
+endsnippet
+
+snippet im "impl" b
+impl $1 {
+	$2
+}
+endsnippet
+
+snippet stim "struct+impl" b
+struct $1 {
+	$2
+}
+
+impl $1 {
+	$3
+}
+endsnippet
