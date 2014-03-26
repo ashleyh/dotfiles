@@ -37,3 +37,5 @@ function pips() {
 function tree() {
   command tree "$@" | least
 }
+
+## idempotent

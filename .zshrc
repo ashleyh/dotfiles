@@ -1,11 +1,12 @@
-# inspired by Valodim's 
-
-export ZSH=$HOME/dotfiles/zsh
+# inspired by Valodim's
 
 _sort_by_filename() {
   REPLY="${REPLY:t}"
 }
 
-for file in $ZSH(|_local)/*.zsh(Noe!_sort_by_filename!^-@); do
-  source "$file"
-done
+_get_zsh_files() {
+  _zsh_files=($HOME/dotfiles/zsh(|_local)/*.zsh(Noe!_sort_by_filename!^-@))
+}
+
+_get_zsh_files
+for file ($_zsh_files) source "$file"
