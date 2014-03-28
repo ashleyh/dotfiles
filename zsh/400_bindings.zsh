@@ -44,8 +44,8 @@ bindkey -M vicmd H beginning-of-line
 bindkey -M vicmd L vi-end-of-line
 bindkey -s '^[gu' '^[qcd ..^j'
 bindkey -s '^[gl' '^[qdirs -p^j'
-bindkey -s '^[go' '^[qpushd -1^j'
-bindkey -s '^[gi' '^[qpushd +0^j'
+bindkey -s '^[go' '^[qpushd +1^j'
+bindkey -s '^[gi' '^[qpushd -0^j'
 bindkey '^[gz' zaw-cdr
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
