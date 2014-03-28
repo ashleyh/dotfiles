@@ -14,7 +14,7 @@ magic-abbrev-expand() {
     LBUFFER=${LBUFFER%%(#m),[_a-zA-Z0-9]#}
     local key=$MATCH[2,-1]
     LBUFFER+=${abbreviations[$key]:-$MATCH}
-    zle self-insert
+    zle magic-space
 }
 
 no-magic-abbrev-expand() {
@@ -26,3 +26,5 @@ zle -N no-magic-abbrev-expand
 bindkey " " magic-abbrev-expand
 bindkey "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
+
+## idempotent
