@@ -49,3 +49,4 @@ bindkey -s '^[gi' '^[qpushd -0^j'
 bindkey '^[gz' zaw-cdr
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
+bindkey -s '^Z' '^[qfg %%^j'
