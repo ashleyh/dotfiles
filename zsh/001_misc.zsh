@@ -19,3 +19,5 @@ setopt pushd_ignore_dups
 
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
+
+WORDCHARS=''
