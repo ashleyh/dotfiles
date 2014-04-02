@@ -2,9 +2,12 @@
 
 typeset -Ag abbreviations
 abbreviations=(
+  "a" " | awk"
+  "c" " | cut"
   "g" " | grep"
   "l" " | less"
   "s" " | sort"
+  "x" " | xargs"
 )
 
 magic-abbrev-expand() {
