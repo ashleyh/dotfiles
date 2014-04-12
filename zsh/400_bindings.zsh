@@ -6,37 +6,22 @@ isearch-vi-cmd-mode() {
 zle -N isearch-vi-cmd-mode
 
 bindkey -e
+
+zmodload zsh/terminfo
+
+zle_line_init_functions+=('echoti smkx')
+zle_line_finish_functions+=('echoti rmkx')
+
+bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
+bindkey "${terminfo[kcud1]}" history-beginning-search-forward
+
 # from OMZ {{{
-bindkey "^[[5~" up-line-or-history
-bindkey "^[[6~" down-line-or-history
-
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
-
-bindkey "^[[H" beginning-of-line
-bindkey "^[[1~" beginning-of-line
-bindkey "^[OH" beginning-of-line
-bindkey "^[[F"  end-of-line
-bindkey "^[[4~" end-of-line
-bindkey "^[OF" end-of-line
-bindkey ' ' magic-space    # also do history expansion on space
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-bindkey '^[[Z' reverse-menu-complete
-
-# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
-bindkey '^?' backward-delete-char
-bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
-bindkey "\e[3~" delete-char
-
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 bindkey "^[m" copy-prev-shell-word
 # }}}
+
 bindkey '^[v' vi-cmd-mode
 bindkey -M isearch '^[v' isearch-vi-cmd-mode
 bindkey -M vicmd H beginning-of-line
