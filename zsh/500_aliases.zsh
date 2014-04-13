@@ -21,6 +21,7 @@ alias v=vim
 alias vi3='v ~/dotfiles/.i3/config'
 alias vv='v ~/dotfiles/.vimrc'
 alias vz='v ~/dotfiles/zsh'
+alias x='~/.virtualenvs/x/bin/x'
 
 function hgdv() {
   hg diff "$@" | view -
