@@ -52,4 +52,6 @@ $'\n'\
 $'\n'\
 '%{%f%k%b%} $(keymap_prompt_info)%# '
 
-RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'
+RPROMPT='%{%B%F{black}%}!%!%{%f%k%b%}'
+
+## idempotent
